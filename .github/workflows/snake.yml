@@ -15,11 +15,9 @@ jobs:
 
       - name: 🖼 Generate Snake Contribution Graph
         uses: Platane/snk@v3  # 🐍 Generates the contribution graph animation
-        id: snake-gif
         with:
           github_user_name: your-github-username  # 🔹 Replace with your GitHub username
-          gif_out_path: dist/github-contribution-grid-snake.gif  # 📁 Path for the GIF file
-          svg_out_path: dist/github-contribution-grid-snake.svg  # 🖼 Path for the SVG file
+          outputs: dist  # 📂 Directory where output files are stored
 
       - name: 🔍 Show Build Status
         run: git status  # ✅ Display the status of the working directory
