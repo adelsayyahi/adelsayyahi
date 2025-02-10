@@ -1,31 +1,44 @@
-name: Generate snake animation  # 🐍 Generates a snake animation for GitHub contributions
+name: generate animation
 
 on:
-  schedule:  # ⏰ Executes the workflow on a scheduled basis
-    - cron: "* */12 * * *"  # 🕐 Executes every 12 hours
-  workflow_dispatch:  # 🔄 Allows manual triggering of the workflow
-  push:  # 📤 Triggered on a push event
+  # run automatically every 24 hours
+  schedule:
+    - cron: "0 */24 * * *" 
+  
+  # allows to manually run the job at any time
+  workflow_dispatch:
+  
+  # run on every push on the master branch
+  push:
     branches:
-      - master  # 🌿 The branch to trigger the action on
+    - master
+    
+  
 
 jobs:
   generate:
-    permissions:
-      contents: write  # ✍️ Grants write permissions for the repository contents
-    runs-on: ubuntu-latest  # 💻 Runs the workflow on the latest Ubuntu runner
-    timeout-minutes: 5  # ⏳ Timeout after 5 minutes if the job takes too long
-
+    permissions: 
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
     steps:
-      - name: generate snake.svg  # 🖼 Generates the snake animation as an SVG file
-        uses: Platane/snk/svg-only@v3  # 🐍 Uses the Platane/snk action to generate the SVG file
+      # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
+      - name: generate github-contribution-grid-snake.svg
+        uses: Platane/snk/svg-only@v3
         with:
-          github_user_name: ${{ github.repository_owner }}  # 🔑 Uses the repository owner's GitHub username
-          outputs: dist/snake.svg?palette=github-dark  # 🎨 Generates the SVG with a GitHub dark theme palette
-
-      - name: push snake.svg to the output branch  # 📤 Pushes the generated SVG to the output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0  # 🌐 Deploys the SVG to GitHub Pages
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+          
+          
+      # push the content of <build_dir> to a branch
+      # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
+      - name: push github-contribution-grid-snake.svg to the output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          target_branch: output  # 🔄 Specifies the target branch for output
-          build_dir: dist  # 📂 Directory containing the generated files
+          target_branch: output
+          build_dir: dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 🔑 Uses the GitHub token for authentication
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
