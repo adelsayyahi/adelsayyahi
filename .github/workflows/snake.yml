@@ -1,38 +1,31 @@
-name: Generate Snake  # 🐍 Generate a snake animation for GitHub contributions
+name: Generate snake animation  # 🐍 Generates a snake animation for GitHub contributions
 
 on:
-  schedule:
-    - cron: "0 */6 * * *"  # ⏳ Runs every 6 hours
+  schedule:  # ⏰ Executes the workflow on a scheduled basis
+    - cron: "* */12 * * *"  # 🕐 Executes every 12 hours
   workflow_dispatch:  # 🔄 Allows manual triggering of the workflow
+  push:  # 📤 Triggered on a push event
+    branches:
+      - master  # 🌿 The branch to trigger the action on
 
 jobs:
-  build:
-    runs-on: ubuntu-latest  # 💻 Runs on the latest Ubuntu runner
+  generate:
+    permissions:
+      contents: write  # ✍️ Grants write permissions for the repository contents
+    runs-on: ubuntu-latest  # 💻 Runs the workflow on the latest Ubuntu runner
+    timeout-minutes: 5  # ⏳ Timeout after 5 minutes if the job takes too long
 
     steps:
-      - name: 🛎 Checkout Repository
-        uses: actions/checkout@v4  # 📥 Fetch the repository code
-
-      - name: 🖼 Generate Snake Contribution Graph
-        uses: Platane/snk@v3  # 🐍 Generates the contribution graph animation
+      - name: generate snake.svg  # 🖼 Generates the snake animation as an SVG file
+        uses: Platane/snk/svg-only@v3  # 🐍 Uses the Platane/snk action to generate the SVG file
         with:
-          github_user_name: your-github-username  # 🔹 Replace with your GitHub username
-          outputs: dist  # 📂 Directory where output files are stored
+          github_user_name: ${{ github.repository_owner }}  # 🔑 Uses the repository owner's GitHub username
+          outputs: dist/snake.svg?palette=github-dark  # 🎨 Generates the SVG with a GitHub dark theme palette
 
-      - name: 🔍 Show Build Status
-        run: git status  # ✅ Display the status of the working directory
-
-      - name: 🚀 Commit and Push Changes
-        uses: ad-m/github-push-action@master  # 📤 Push the generated files to GitHub
+      - name: push snake.svg to the output branch  # 📤 Pushes the generated SVG to the output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0  # 🌐 Deploys the SVG to GitHub Pages
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # 🔑 Uses GitHub authentication token
-          branch: main  # 🌿 Make sure the correct branch is set (main or master)
-          force: true  # ⚠️ Force push to overwrite changes if necessary
-
-      - name: 📢 Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v3  # 🌍 Deploys the snake animation to GitHub Pages
-        with:
-          target_branch: output  # 🔄 The branch where generated files will be stored
-          build_dir: dist  # 📂 Directory containing the output files
+          target_branch: output  # 🔄 Specifies the target branch for output
+          build_dir: dist  # 📂 Directory containing the generated files
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 🔑 Authentication token for deployment
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 🔑 Uses the GitHub token for authentication
