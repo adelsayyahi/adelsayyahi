@@ -1,0 +1,40 @@
+name: Generate Snake  # 🐍 Generate a snake animation for GitHub contributions
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # ⏳ Runs every 6 hours
+  workflow_dispatch:  # 🔄 Allows manual triggering of the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 💻 Runs on the latest Ubuntu runner
+
+    steps:
+      - name: 🛎 Checkout Repository
+        uses: actions/checkout@v4  # 📥 Fetch the repository code
+
+      - name: 🖼 Generate Snake Contribution Graph
+        uses: Platane/snk@v3  # 🐍 Generates the contribution graph animation
+        id: snake-gif
+        with:
+          github_user_name: your-github-username  # 🔹 Replace with your GitHub username
+          gif_out_path: dist/github-contribution-grid-snake.gif  # 📁 Path for the GIF file
+          svg_out_path: dist/github-contribution-grid-snake.svg  # 🖼 Path for the SVG file
+
+      - name: 🔍 Show Build Status
+        run: git status  # ✅ Display the status of the working directory
+
+      - name: 🚀 Commit and Push Changes
+        uses: ad-m/github-push-action@master  # 📤 Push the generated files to GitHub
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # 🔑 Uses GitHub authentication token
+          branch: main  # 🌿 Make sure the correct branch is set (main or master)
+          force: true  # ⚠️ Force push to overwrite changes if necessary
+
+      - name: 📢 Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v3  # 🌍 Deploys the snake animation to GitHub Pages
+        with:
+          target_branch: output  # 🔄 The branch where generated files will be stored
+          build_dir: dist  # 📂 Directory containing the output files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 🔑 Authentication token for deployment
