@@ -64,11 +64,13 @@
 ###
 
 <!-- GitHub Contribution Snake Animation -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/adelsayyahi/AdelSayyahi_Github_Profile/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/adelsayyahi/AdelSayyahi_Github_Profile/output/github-contribution-grid-snake.svg">
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/adelsayyahi/AdelSayyahi_Github_Profile/output/github-contribution-grid-snake.svg">
-</picture>
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/adelsayyahi/AdelSayyahi_Github_Profile/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/adelsayyahi/AdelSayyahi_Github_Profile/output/github-contribution-grid-snake.svg">
+    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/adelsayyahi/AdelSayyahi_Github_Profile/output/github-contribution-grid-snake.svg">
+  </picture>
+</div>
 
 ###
 
@@ -77,6 +79,5 @@
 🤖 AI & Deep Learning Enthusiast <br>
 🏥 Researcher in Medical Imaging <br>
 🔭 Exploring Transfer Learning & Generative Models <br>
-❤️ Passionate about Open-Source and Scientific Research <br>
 🎓 Master's Student in Artificial Intelligence at Shahid Chamran University of Ahvaz 
 
