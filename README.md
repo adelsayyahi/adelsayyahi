@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋! My name is A'adel Syyahi </h1>
+<!--h1 align="center">Hi 👋! My name is A'adel Syyahi </h1>
 
 
 <h2 align="center">Welcome to my GitHub Profile!
@@ -76,7 +76,7 @@
 
 
 <p <br>
-🤖 AI & Deep Learning Enthusiast <br>
+<!--🤖 AI & Deep Learning Enthusiast <br>
 🏥 Researcher in Medical Imaging <br>
 🔭 Exploring Transfer Learning & Generative Models <br>
 🎓 Master's Student in Artificial Intelligence at Shahid Chamran University of Ahvaz 
