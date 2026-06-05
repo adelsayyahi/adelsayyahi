@@ -44,6 +44,8 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" height="40" alt="pytorch logo" />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" height="40" alt="pytest logo" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/LaTeX_logo.svg" height="40" alt="LaTeX logo" />
+
 </div>
 
 ###
@@ -76,8 +78,8 @@
 
 
 <p <br>
-<!--🤖 AI & Deep Learning Enthusiast <br>
-🏥 Researcher in Medical Imaging <br>
-🔭 Exploring Transfer Learning & Generative Models <br>
+<!--🤖 AI & Deep Learning Enthusiast 
+🏥 Researcher in Medical Imaging 
+🔭 Exploring Transfer Learning & Generative Models 
 🎓 Master's Student in Artificial Intelligence at Shahid Chamran University of Ahvaz 
 
