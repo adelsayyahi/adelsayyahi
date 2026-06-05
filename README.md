@@ -44,8 +44,10 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" height="40" alt="pytorch logo" />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" height="40" alt="pytest logo" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/LaTeX_logo.svg" height="40" alt="LaTeX logo" />
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/92/LaTeX_logo.svg" 
+     height="40" 
+     alt="LaTeX logo"
+     style="filter: brightness(0) invert(1);" />
 </div>
 
 ###
