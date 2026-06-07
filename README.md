@@ -67,21 +67,3 @@
 
 ###
 
-<!-- GitHub Contribution Snake Animation -->
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/adelsayyahi/AdelSayyahi_Github_Profile/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/adelsayyahi/AdelSayyahi_Github_Profile/output/github-contribution-grid-snake.svg">
-    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/adelsayyahi/AdelSayyahi_Github_Profile/output/github-contribution-grid-snake.svg">
-  </picture>
-</div>
-
-###
-
-
-<p <br>
-<!--🤖 AI & Deep Learning Enthusiast 
-🏥 Researcher in Medical Imaging 
-🔭 Exploring Transfer Learning & Generative Models 
-🎓 Master's Student in Artificial Intelligence at Shahid Chamran University of Ahvaz 
-
